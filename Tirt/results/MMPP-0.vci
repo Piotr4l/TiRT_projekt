@@ -1,0 +1,21 @@
+file 3212044 1301565997                                         
+version 2
+run MMPP-0-20110331-12:06:12-1508
+attr configname MMPP
+attr datetime 20110331-12:06:12
+attr experiment MMPP
+attr inifile C:/Users/Mariusz/Desktop/Tirt/omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Network4
+attr processid 1508
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  Network4.receiver  arrivals  ETV
+attr interpolationmode  none
+0	476 3211568 2 346623 0 791768 173287 0 10005 791768 513159414

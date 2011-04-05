@@ -1,0 +1,6 @@
+# Partial Tkenv config file -- see $HOME/.tkenvrc as well
+inspector "Network4" "Network4" "2" "565x339+306+225:normal"
+inspector "Net2" "Net2" "2" "565x340+75+75:normal"
+inspector "Network3" "Network3" "2" "565x340+156+75:normal"
+inspector "Net1" "Net1" "2" "565x340+785+75:normal"
+

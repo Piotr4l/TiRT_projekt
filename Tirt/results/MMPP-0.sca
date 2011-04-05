@@ -1,0 +1,57 @@
+version 2
+run MMPP-0-20110331-12:06:12-1508
+attr configname MMPP
+attr datetime 20110331-12:06:12
+attr experiment MMPP
+attr inifile C:/Users/Mariusz/Desktop/Tirt/omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Network4
+attr processid 1508
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+statistic Network4.receiver 	"interarrival times"
+field count 173287
+field mean 4.5691136669225
+field stddev 54.226071545271
+field sum 791768
+field sqrsum 513159414
+field min 0
+field max 10005
+bin	-INF	0
+bin	-4	0
+bin	-3.4666666666667	0
+bin	-2.9333333333333	0
+bin	-2.4	0
+bin	-1.8666666666667	0
+bin	-1.3333333333333	0
+bin	-0.8	0
+bin	-0.26666666666667	3138
+bin	0.26666666666667	0
+bin	0.8	12554
+bin	1.3333333333333	0
+bin	1.8666666666667	25539
+bin	2.4	0
+bin	2.9333333333333	33812
+bin	3.4666666666667	0
+bin	4	34123
+bin	4.5333333333333	26798
+bin	5.0666666666667	0
+bin	5.6	18038
+bin	6.1333333333333	0
+bin	6.6666666666667	10467
+bin	7.2	0
+bin	7.7333333333333	5005
+bin	8.2666666666667	0
+bin	8.8	2310
+bin	9.3333333333333	0
+bin	9.8666666666667	926
+bin	10.4	0
+bin	10.933333333333	347
+bin	11.466666666667	0
+bin	12	230

@@ -1,0 +1,57 @@
+version 2
+run On-Off-0-20110331-11:52:47-4216
+attr configname On-Off
+attr datetime 20110331-11:52:47
+attr experiment On-Off
+attr inifile C:/Users/Mariusz/Desktop/Tirt/omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Network3
+attr processid 4216
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+statistic Network3.receiver 	"interarrival times"
+field count 59
+field mean 6.3389830508475
+field stddev 5.6556659703941
+field sum 374
+field sqrsum 4226
+field min 0
+field max 22
+bin	-INF	0
+bin	-11	0
+bin	-9.5333333333333	0
+bin	-8.0666666666667	0
+bin	-6.6	0
+bin	-5.1333333333333	0
+bin	-3.6666666666667	0
+bin	-2.2	0
+bin	-0.73333333333333	9
+bin	0.73333333333333	5
+bin	2.2	12
+bin	3.6666666666667	8
+bin	5.1333333333333	1
+bin	6.6	5
+bin	8.0666666666667	6
+bin	9.5333333333333	4
+bin	11	0
+bin	12.466666666667	0
+bin	13.933333333333	3
+bin	15.4	1
+bin	16.866666666667	3
+bin	18.333333333333	1
+bin	19.8	0
+bin	21.266666666667	1
+bin	22.733333333333	0
+bin	24.2	0
+bin	25.666666666667	0
+bin	27.133333333333	0
+bin	28.6	0
+bin	30.066666666667	0
+bin	31.533333333333	0
+bin	33	0

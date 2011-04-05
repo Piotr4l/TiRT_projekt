@@ -1,0 +1,78 @@
+version 2
+run On-Off-0-20110331-11:52:47-4216
+attr configname On-Off
+attr datetime 20110331-11:52:47
+attr experiment On-Off
+attr inifile C:/Users/Mariusz/Desktop/Tirt/omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Network3
+attr processid 4216
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  Network3.receiver  arrivals  ETV
+attr interpolationmode  none
+0	2	0	0
+0	4	3	3
+0	6	8	5
+0	8	15	7
+0	10	25	10
+0	12	26	1
+0	14	48	22
+0	16	51	3
+0	18	56	5
+0	20	59	3
+0	22	62	3
+0	24	76	14
+0	26	85	9
+0	28	95	10
+0	30	97	2
+0	32	97	0
+0	34	102	5
+0	36	120	18
+0	38	129	9
+0	40	137	8
+0	42	144	7
+0	44	147	3
+0	46	147	0
+0	48	156	9
+0	50	160	4
+0	52	163	3
+0	54	181	18
+0	56	184	3
+0	58	189	5
+0	60	190	1
+0	62	193	3
+0	64	193	0
+0	66	197	4
+0	68	212	15
+0	70	212	0
+0	72	212	0
+0	74	222	10
+0	76	231	9
+0	78	234	3
+0	80	250	16
+0	82	259	9
+0	84	263	4
+0	86	271	8
+0	88	274	3
+0	90	293	19
+0	92	303	10
+0	94	311	8
+0	96	313	2
+0	98	313	0
+0	100	328	15
+0	102	330	2
+0	104	333	3
+0	106	333	0
+0	108	339	6
+0	110	357	18
+0	112	362	5
+0	114	371	9
+0	116	374	3
+0	118	374	0
