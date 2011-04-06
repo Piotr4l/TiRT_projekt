@@ -19,8 +19,8 @@
  * Class generated from <tt>data/Package.msg</tt> by opp_msgc.
  * <pre>
  * packet Package {
- *     string destination;
- *     string source;
+ *     int destination;
+ *     int source;
  *     int sessionId;
  *     int packetId;
  *     int priority;
@@ -31,8 +31,8 @@
 class Package : public ::cPacket
 {
   protected:
-    opp_string destination_var;
-    opp_string source_var;
+    int destination_var;
+    int source_var;
     int sessionId_var;
     int packetId_var;
     int priority_var;
@@ -51,10 +51,10 @@ class Package : public ::cPacket
     virtual void parsimUnpack(cCommBuffer *b);
 
     // field getter/setter methods
-    virtual const char * getDestination() const;
-    virtual void setDestination(const char * destination_var);
-    virtual const char * getSource() const;
-    virtual void setSource(const char * source_var);
+    virtual int getDestination() const;
+    virtual void setDestination(int destination_var);
+    virtual int getSource() const;
+    virtual void setSource(int source_var);
     virtual int getSessionId() const;
     virtual void setSessionId(int sessionId_var);
     virtual int getPacketId() const;

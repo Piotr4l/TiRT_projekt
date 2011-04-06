@@ -17,8 +17,8 @@
 // TODO generated message class
 //
 packet Package {
-    string destination;
-    string source;
+    int destination;
+    int source;
     int sessionId;
     int packetId;
     int priority;

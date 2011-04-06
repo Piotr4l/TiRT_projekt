@@ -66,12 +66,13 @@ void ExponentialGenerator::handleMessage(cMessage *msg) {
 Package *ExponentialGenerator::generateMessage(){
 	//create and set values in new message
 		Package *package = new Package("");
-		package->setSource("source");
-		package->setDestination("destination");
+		package->setSource(1001);
+		package->setDestination(1002);
 		package->setDuration(par("duration"));
 		package->setPriority(par("priority"));
 		package->setSessionId(par("sessionId"));
 		package->setPacketId(packetId++);
+		package->setSize(par("size"));
 	//return value
 		return package;
 }

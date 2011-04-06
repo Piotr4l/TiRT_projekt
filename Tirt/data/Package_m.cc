@@ -87,22 +87,22 @@ void Package::parsimUnpack(cCommBuffer *b)
     doUnpacking(b,this->size_var);
 }
 
-const char * Package::getDestination() const
+int Package::getDestination() const
 {
-    return destination_var.c_str();
+    return destination_var;
 }
 
-void Package::setDestination(const char * destination_var)
+void Package::setDestination(int destination_var)
 {
     this->destination_var = destination_var;
 }
 
-const char * Package::getSource() const
+int Package::getSource() const
 {
-    return source_var.c_str();
+    return source_var;
 }
 
-void Package::setSource(const char * source_var)
+void Package::setSource(int source_var)
 {
     this->source_var = source_var;
 }
@@ -257,8 +257,8 @@ const char *PackageDescriptor::getFieldTypeString(void *object, int field) const
         field -= basedesc->getFieldCount(object);
     }
     static const char *fieldTypeStrings[] = {
-        "string",
-        "string",
+        "int",
+        "int",
         "int",
         "int",
         "int",
@@ -304,8 +304,8 @@ std::string PackageDescriptor::getFieldAsString(void *object, int field, int i) 
     }
     Package *pp = (Package *)object; (void)pp;
     switch (field) {
-        case 0: return oppstring2string(pp->getDestination());
-        case 1: return oppstring2string(pp->getSource());
+        case 0: return long2string(pp->getDestination());
+        case 1: return long2string(pp->getSource());
         case 2: return long2string(pp->getSessionId());
         case 3: return long2string(pp->getPacketId());
         case 4: return long2string(pp->getPriority());
@@ -324,8 +324,8 @@ bool PackageDescriptor::setFieldAsString(void *object, int field, int i, const c
     }
     Package *pp = (Package *)object; (void)pp;
     switch (field) {
-        case 0: pp->setDestination((value)); return true;
-        case 1: pp->setSource((value)); return true;
+        case 0: pp->setDestination(string2long(value)); return true;
+        case 1: pp->setSource(string2long(value)); return true;
         case 2: pp->setSessionId(string2long(value)); return true;
         case 3: pp->setPacketId(string2long(value)); return true;
         case 4: pp->setPriority(string2long(value)); return true;

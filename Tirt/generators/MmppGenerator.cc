@@ -53,7 +53,12 @@ void MmppGenerator::handleMessage(cMessage *msg) {
 
 	if(state!=0 && msg->isSelfMessage()) {
 		package = generateMessage();
-		package -> setSize(state*500);
+
+		if(state == 1) {
+			package -> setSize(par("size1"));
+		} else {
+			package -> setSize(par("size2"));
+		}
 
 		send(package,"out");
 		EV << "Packet send at: " << simTime() << " packedId: " << packetId << "\n";
@@ -104,8 +109,8 @@ void MmppGenerator::handleMessage(cMessage *msg) {
 Package *MmppGenerator::generateMessage(){
 	//create and set values in new message
 		Package *package = new Package("");
-		package->setSource("source");
-		package->setDestination("destination");
+		package->setSource(1001);
+		package->setDestination(1002);
 		package->setDuration(par("duration"));
 		package->setPriority(par("priority"));
 		package->setSessionId(par("sessionId"));

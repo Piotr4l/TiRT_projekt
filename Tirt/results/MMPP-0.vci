@@ -1,15 +1,15 @@
-file 3212044 1301565997                                         
+file 2068 1302129917                                            
 version 2
-run MMPP-0-20110331-12:06:12-1508
+run MMPP-0-20110407-00:45:09-4648
 attr configname MMPP
-attr datetime 20110331-12:06:12
+attr datetime 20110407-00:45:09
 attr experiment MMPP
 attr inifile C:/Users/Mariusz/Desktop/Tirt/omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Network4
-attr processid 1508
+attr processid 4648
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -18,4 +18,6 @@ attr seedset 0
 
 vector 0  Network4.receiver  arrivals  ETV
 attr interpolationmode  none
-0	476 3211568 2 346623 0 791768 173287 0 10005 791768 513159414
+vector 1  Network4.receiver  sizes  ETV
+0	517 711 2 124 0 398 59 0 43 398 6366
+1	1228 840 2 124 0 398 59 500 1000 39000 29000000

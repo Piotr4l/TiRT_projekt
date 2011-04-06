@@ -1,15 +1,15 @@
-file 1190 1301565176                                            
+file 2407 1302130423                                            
 version 2
-run On-Off-0-20110331-11:52:47-4216
+run On-Off-0-20110407-00:53:29-15444
 attr configname On-Off
-attr datetime 20110331-11:52:47
+attr datetime 20110407-00:53:29
 attr experiment On-Off
-attr inifile C:/Users/Mariusz/Desktop/Tirt/omnetpp.ini
+attr inifile C:/omnetpp-4.1-src-windows/omnetpp-4.1/samples/Tirt/omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Network3
-attr processid 4216
+attr processid 15444
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -18,4 +18,6 @@ attr seedset 0
 
 vector 0  Network3.receiver  arrivals  ETV
 attr interpolationmode  none
-0	482 708 2 118 0 374 59 0 22 374 4226
+vector 1  Network3.receiver  sizes  ETV
+0	547 867 2 142 0 482 71 0 22 482 5392
+1	1414 993 2 142 0 482 71 500 500 35500 17750000

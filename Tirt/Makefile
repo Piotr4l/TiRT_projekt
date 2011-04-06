@@ -122,8 +122,6 @@ $O/generators/ExponentialGenerator.o: generators/ExponentialGenerator.cc \
 	data/Package_m.h
 $O/generators/OnOffGenerator.o: generators/OnOffGenerator.cc \
 	data/Package_m.h
-$O/generators/MmppGenerator1.o: generators/MmppGenerator1.cc \
-	data/Package_m.h
 $O/receivers/Receiver.o: receivers/Receiver.cc \
 	data/Package_m.h
 

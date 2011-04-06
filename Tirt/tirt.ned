@@ -2,11 +2,12 @@ simple PoissonGenerator
 {
     parameters:
     	double lambda = default(5);
-    	volatile double delay @unit(s) = default(100ms); 
+    	volatile double delay = default(100); 
     	int duration = default(0);
 		int priority = default(0);
 		int sessionId = default(0);
 		int packetId = default(0);
+		int size = default(500);
     gates:
         output out;
 }
@@ -14,12 +15,13 @@ simple PoissonGenerator
 simple ExponentialGenerator
 {
  	parameters:
-    	volatile double delay @unit(s)= default(100ms); 
+    	volatile double delay = default(100); 
     	double alfa = default(3);
     	int duration = default(0);
 		int priority = default(0);
 		int sessionId = default(0);
 		int packetId = default(0);
+		int size = default(500);
     gates:
         output out;
 }
@@ -34,6 +36,7 @@ simple OnOffGenerator
 		int priority = default(0);
 		int sessionId = default(0);
 		int packetId = default(0);
+		int size = default(500);
     gates:
         output out;
 }
@@ -50,6 +53,8 @@ simple MmppGenerator
 		double lambda = default(5);
 		int markovDelay = default(10);
 		
+		int size1 = default(500);
+		int size2 = default(1000);
 		volatile double offInterval = default(4000); 
         volatile int switchingInterval = default(3);
 		int lambda1 = default(5);

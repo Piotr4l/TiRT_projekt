@@ -42,7 +42,7 @@ void Receiver::handleMessage(cMessage *msg) {
 	// store data in vector
 	iaTimeHistogram.collect(interval);
 	arrivalsVector.record(interval);
-	//sizesVector.record(package -> getSize());
+	sizesVector.record(package -> getSize());
 
 	delete msg;
 
