@@ -1,15 +1,15 @@
-file 1542 1302129250                                            
+file 6143 1302160619                                            
 version 2
-run Poisson-0-20110407-00:34:04-4664
+run Poisson-0-20110407-09:16:40-14620
 attr configname Poisson
-attr datetime 20110407-00:34:04
+attr datetime 20110407-09:16:40
 attr experiment Poisson
-attr inifile C:/Users/Mariusz/Desktop/Tirt/omnetpp.ini
+attr inifile C:/omnetpp-4.1-src-windows/omnetpp-4.1/samples/Tirt/omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Network1
-attr processid 4664
+attr processid 14620
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -19,5 +19,5 @@ attr seedset 0
 vector 0  Network1.receiver  arrivals  ETV
 attr interpolationmode  none
 vector 1  Network1.receiver  sizes  ETV
-0	526 507 2 70 0 3572 35 0 111 3572 375444
-1	1033 509 2 70 0 3572 35 500 500 17500 8750000
+0	550 2703 2 372 0 6488 186 0 41 6488 228490
+1	3253 2890 2 372 0 6488 186 500 500 93000 46500000

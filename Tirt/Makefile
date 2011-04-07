@@ -118,9 +118,9 @@ $O/generators/MmppGenerator.o: generators/MmppGenerator.cc \
 	data/Package_m.h
 $O/generators/PoissonGenerator.o: generators/PoissonGenerator.cc \
 	data/Package_m.h
-$O/generators/ExponentialGenerator.o: generators/ExponentialGenerator.cc \
-	data/Package_m.h
 $O/generators/OnOffGenerator.o: generators/OnOffGenerator.cc \
+	data/Package_m.h
+$O/generators/ExponentialGenerator.o: generators/ExponentialGenerator.cc \
 	data/Package_m.h
 $O/receivers/Receiver.o: receivers/Receiver.cc \
 	data/Package_m.h
