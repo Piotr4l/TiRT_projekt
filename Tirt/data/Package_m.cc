@@ -40,16 +40,22 @@ Package::Package(const char *name, int kind) : cPacket(name,kind)
     this->packetId_var = 0;
     this->priority_var = 0;
     this->size_var = 0;
+    this->isAccepted_var = 0;
+    payload_arraysize = 0;
+    this->payload_var = 0;
 }
 
 Package::Package(const Package& other) : cPacket()
 {
     setName(other.getName());
+    payload_arraysize = 0;
+    this->payload_var = 0;
     operator=(other);
 }
 
 Package::~Package()
 {
+    delete [] payload_var;
 }
 
 Package& Package::operator=(const Package& other)
@@ -62,6 +68,12 @@ Package& Package::operator=(const Package& other)
     this->packetId_var = other.packetId_var;
     this->priority_var = other.priority_var;
     this->size_var = other.size_var;
+    this->isAccepted_var = other.isAccepted_var;
+    delete [] this->payload_var;
+    this->payload_var = (other.payload_arraysize==0) ? NULL : new bool[other.payload_arraysize];
+    payload_arraysize = other.payload_arraysize;
+    for (unsigned int i=0; i<payload_arraysize; i++)
+        this->payload_var[i] = other.payload_var[i];
     return *this;
 }
 
@@ -74,6 +86,9 @@ void Package::parsimPack(cCommBuffer *b)
     doPacking(b,this->packetId_var);
     doPacking(b,this->priority_var);
     doPacking(b,this->size_var);
+    doPacking(b,this->isAccepted_var);
+    b->pack(payload_arraysize);
+    doPacking(b,this->payload_var,payload_arraysize);
 }
 
 void Package::parsimUnpack(cCommBuffer *b)
@@ -85,6 +100,15 @@ void Package::parsimUnpack(cCommBuffer *b)
     doUnpacking(b,this->packetId_var);
     doUnpacking(b,this->priority_var);
     doUnpacking(b,this->size_var);
+    doUnpacking(b,this->isAccepted_var);
+    delete [] this->payload_var;
+    b->unpack(payload_arraysize);
+    if (payload_arraysize==0) {
+        this->payload_var = 0;
+    } else {
+        this->payload_var = new bool[payload_arraysize];
+        doUnpacking(b,this->payload_var,payload_arraysize);
+    }
 }
 
 int Package::getDestination() const
@@ -147,6 +171,46 @@ void Package::setSize(int size_var)
     this->size_var = size_var;
 }
 
+bool Package::getIsAccepted() const
+{
+    return isAccepted_var;
+}
+
+void Package::setIsAccepted(bool isAccepted_var)
+{
+    this->isAccepted_var = isAccepted_var;
+}
+
+void Package::setPayloadArraySize(unsigned int size)
+{
+    bool *payload_var2 = (size==0) ? NULL : new bool[size];
+    unsigned int sz = payload_arraysize < size ? payload_arraysize : size;
+    for (unsigned int i=0; i<sz; i++)
+        payload_var2[i] = this->payload_var[i];
+    for (unsigned int i=sz; i<size; i++)
+        payload_var2[i] = 0;
+    payload_arraysize = size;
+    delete [] this->payload_var;
+    this->payload_var = payload_var2;
+}
+
+unsigned int Package::getPayloadArraySize() const
+{
+    return payload_arraysize;
+}
+
+bool Package::getPayload(unsigned int k) const
+{
+    if (k>=payload_arraysize) throw cRuntimeError("Array of size %d indexed by %d", payload_arraysize, k);
+    return payload_var[k];
+}
+
+void Package::setPayload(unsigned int k, bool payload_var)
+{
+    if (k>=payload_arraysize) throw cRuntimeError("Array of size %d indexed by %d", payload_arraysize, k);
+    this->payload_var[k]=payload_var;
+}
+
 class PackageDescriptor : public cClassDescriptor
 {
   public:
@@ -194,7 +258,7 @@ const char *PackageDescriptor::getProperty(const char *propertyname) const
 int PackageDescriptor::getFieldCount(void *object) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 6+basedesc->getFieldCount(object) : 6;
+    return basedesc ? 8+basedesc->getFieldCount(object) : 8;
 }
 
 unsigned int PackageDescriptor::getFieldTypeFlags(void *object, int field) const
@@ -212,8 +276,10 @@ unsigned int PackageDescriptor::getFieldTypeFlags(void *object, int field) const
         FD_ISEDITABLE,
         FD_ISEDITABLE,
         FD_ISEDITABLE,
+        FD_ISEDITABLE,
+        FD_ISARRAY | FD_ISEDITABLE,
     };
-    return (field>=0 && field<6) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<8) ? fieldTypeFlags[field] : 0;
 }
 
 const char *PackageDescriptor::getFieldName(void *object, int field) const
@@ -231,8 +297,10 @@ const char *PackageDescriptor::getFieldName(void *object, int field) const
         "packetId",
         "priority",
         "size",
+        "isAccepted",
+        "payload",
     };
-    return (field>=0 && field<6) ? fieldNames[field] : NULL;
+    return (field>=0 && field<8) ? fieldNames[field] : NULL;
 }
 
 int PackageDescriptor::findField(void *object, const char *fieldName) const
@@ -245,6 +313,8 @@ int PackageDescriptor::findField(void *object, const char *fieldName) const
     if (fieldName[0]=='p' && strcmp(fieldName, "packetId")==0) return base+3;
     if (fieldName[0]=='p' && strcmp(fieldName, "priority")==0) return base+4;
     if (fieldName[0]=='s' && strcmp(fieldName, "size")==0) return base+5;
+    if (fieldName[0]=='i' && strcmp(fieldName, "isAccepted")==0) return base+6;
+    if (fieldName[0]=='p' && strcmp(fieldName, "payload")==0) return base+7;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
@@ -263,8 +333,10 @@ const char *PackageDescriptor::getFieldTypeString(void *object, int field) const
         "int",
         "int",
         "int",
+        "bool",
+        "bool",
     };
-    return (field>=0 && field<6) ? fieldTypeStrings[field] : NULL;
+    return (field>=0 && field<8) ? fieldTypeStrings[field] : NULL;
 }
 
 const char *PackageDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
@@ -290,6 +362,7 @@ int PackageDescriptor::getArraySize(void *object, int field) const
     }
     Package *pp = (Package *)object; (void)pp;
     switch (field) {
+        case 7: return pp->getPayloadArraySize();
         default: return 0;
     }
 }
@@ -310,6 +383,8 @@ std::string PackageDescriptor::getFieldAsString(void *object, int field, int i) 
         case 3: return long2string(pp->getPacketId());
         case 4: return long2string(pp->getPriority());
         case 5: return long2string(pp->getSize());
+        case 6: return bool2string(pp->getIsAccepted());
+        case 7: return bool2string(pp->getPayload(i));
         default: return "";
     }
 }
@@ -330,6 +405,8 @@ bool PackageDescriptor::setFieldAsString(void *object, int field, int i, const c
         case 3: pp->setPacketId(string2long(value)); return true;
         case 4: pp->setPriority(string2long(value)); return true;
         case 5: pp->setSize(string2long(value)); return true;
+        case 6: pp->setIsAccepted(string2bool(value)); return true;
+        case 7: pp->setPayload(i,string2bool(value)); return true;
         default: return false;
     }
 }
@@ -349,8 +426,10 @@ const char *PackageDescriptor::getFieldStructName(void *object, int field) const
         NULL,
         NULL,
         NULL,
+        NULL,
+        NULL,
     };
-    return (field>=0 && field<6) ? fieldStructNames[field] : NULL;
+    return (field>=0 && field<8) ? fieldStructNames[field] : NULL;
 }
 
 void *PackageDescriptor::getFieldStructPointer(void *object, int field, int i) const

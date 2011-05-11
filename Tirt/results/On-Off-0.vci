@@ -1,4 +1,4 @@
-file 2407 1302130423                                            
+file 2245 1302134788                                            
 version 2
 run On-Off-0-20110407-00:53:29-15444
 attr configname On-Off
@@ -15,9 +15,8 @@ attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-
 vector 0  Network3.receiver  arrivals  ETV
-attr interpolationmode  none
+attr interpolationmode none
+0	527 796 2 142 0 482 71 0 22 482 5392
 vector 1  Network3.receiver  sizes  ETV
-0	547 867 2 142 0 482 71 0 22 482 5392
-1	1414 993 2 142 0 482 71 500 500 35500 17750000
+1	1323 922 2 142 0 482 71 500 500 35500 17750000

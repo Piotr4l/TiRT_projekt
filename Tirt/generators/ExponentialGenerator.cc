@@ -34,14 +34,20 @@ void ExponentialGenerator::initialize() {
     numSent = 0;
     WATCH(numSent);
 
-    // initialize sending packets
-	msg = new cMessage("Example");
-	scheduleAt(simTime(), msg);
+    int genType = par("genType");
+
+    if(genType == 1){
+    	// initialize sending packets
+    	msg = new cMessage("Example");
+    	scheduleAt(simTime(), msg);
+    }
 }
 
 void ExponentialGenerator::handleMessage(cMessage *msg) {
+
 	delay = par("delay");
 	alfa = par("alfa");
+
 	if(msg->isSelfMessage()) {
 		//send message
 		send(generateMessage(),"out");
@@ -56,7 +62,9 @@ void ExponentialGenerator::handleMessage(cMessage *msg) {
 		
 		// generate bubble with counter
 		if (ev.isGUI())
-		            updateDisplay();
+		{
+			updateDisplay();
+		}
 
 	} else {
 		bubble("Somethings wrong message lost");
@@ -69,11 +77,12 @@ Package *ExponentialGenerator::generateMessage(){
 		package->setSource(1001);
 		package->setDestination(1002);
 		package->setDuration(par("duration"));
-		package->setPriority(par("priority"));
 		package->setSessionId(par("sessionId"));
 		package->setPacketId(packetId++);
-		package->setSize(par("size"));
-	//return value
+		package->setIsAccepted(false);
+		package->setPriority(intuniform(par("minPrio"),par("maxPrio")));
+		package->setSize(intuniform(par("minSize"),par("maxSize")));
+
 		return package;
 }
 

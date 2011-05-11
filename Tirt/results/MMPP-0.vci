@@ -1,4 +1,4 @@
-file 2068 1302129917                                            
+file 1930 1302134788                                            
 version 2
 run MMPP-0-20110407-00:45:09-4648
 attr configname MMPP
@@ -15,9 +15,8 @@ attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-
 vector 0  Network4.receiver  arrivals  ETV
-attr interpolationmode  none
+attr interpolationmode none
+0	497 652 2 124 0 398 59 0 43 398 6366
 vector 1  Network4.receiver  sizes  ETV
-0	517 711 2 124 0 398 59 0 43 398 6366
-1	1228 840 2 124 0 398 59 500 1000 39000 29000000
+1	1149 781 2 124 0 398 59 500 1000 39000 29000000

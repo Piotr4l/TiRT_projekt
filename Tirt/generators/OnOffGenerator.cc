@@ -38,9 +38,13 @@ void OnOffGenerator::initialize() {
     numSent = 0;
     WATCH(numSent);
 
-    // initialize sending packets
-	msg = new cMessage("Example");
-	scheduleAt(simTime(), msg);
+    int genType = par("genType");
+
+    if(genType == 3){
+    	// initialize sending packets
+    	msg = new cMessage("Example");
+    	scheduleAt(simTime(), msg);
+    }
 }
 
 void OnOffGenerator::handleMessage(cMessage *msg) {
@@ -77,10 +81,12 @@ Package *OnOffGenerator::generateMessage(){
 		package->setSource(1000);
 		package->setDestination(1001);
 		package->setDuration(par("duration"));
-		package->setPriority(par("priority"));
 		package->setSessionId(par("sessionId"));
 		package->setPacketId(packetId++);
 		package->setSize(par("size"));
+		package->setIsAccepted(false);
+		package->setPriority(intuniform(par("minPrio"),par("maxPrio")));
+		package->setSize(intuniform(par("minSize"),par("maxSize")));
 	//return value
 		return package;
 }

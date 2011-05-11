@@ -1,12 +1,12 @@
 #
-# OMNeT++/OMNEST Makefile for Tirt
+# OMNeT++/OMNEST Makefile for Tirt_new
 #
 # This file was generated with the command:
 #  opp_makemake -f --deep -O out
 #
 
 # Name of target to be created (-o option)
-TARGET = Tirt$(EXE_SUFFIX)
+TARGET = Tirt_new$(EXE_SUFFIX)
 
 # User interface (uncomment one) (-u option)
 USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(CMDENV_LIBS)
@@ -14,7 +14,15 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(TKENV_LIBS) $(CMDENV_LIBS)
 #USERIF_LIBS = $(TKENV_LIBS)
 
 # C++ include paths (with -I)
-INCLUDE_PATH = -I. -Idata -Igenerators -Ireceivers -Iresults
+INCLUDE_PATH = \
+    -I. \
+    -IadmissionControl \
+    -Idata \
+    -Igenerators \
+    -Ireceivers \
+    -Iresults \
+    -Ischeduler \
+    -Itraffic
 
 # Additional object and library files to link with
 EXTRA_OBJS =
@@ -29,11 +37,14 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc and .msg files
 OBJS = \
+    $O/admissionControl/AdmissionControl.o \
     $O/generators/ExponentialGenerator.o \
     $O/generators/MmppGenerator.o \
     $O/generators/OnOffGenerator.o \
     $O/generators/PoissonGenerator.o \
     $O/receivers/Receiver.o \
+    $O/scheduler/Scheduler.o \
+    $O/traffic/TrafficShaper.o \
     $O/data/Package_m.o
 
 # Message files
@@ -98,30 +109,39 @@ msgheaders: $(MSGFILES:.msg=_m.h)
 
 clean:
 	-rm -rf $O
-	-rm -f Tirt Tirt.exe libTirt.so libTirt.a libTirt.dll libTirt.dylib
+	-rm -f Tirt_new Tirt_new.exe libTirt_new.so libTirt_new.a libTirt_new.dll libTirt_new.dylib
 	-rm -f ./*_m.cc ./*_m.h
+	-rm -f admissionControl/*_m.cc admissionControl/*_m.h
 	-rm -f data/*_m.cc data/*_m.h
 	-rm -f generators/*_m.cc generators/*_m.h
 	-rm -f receivers/*_m.cc receivers/*_m.h
 	-rm -f results/*_m.cc results/*_m.h
+	-rm -f scheduler/*_m.cc scheduler/*_m.h
+	-rm -f traffic/*_m.cc traffic/*_m.h
 
 cleanall: clean
 	-rm -rf $(PROJECT_OUTPUT_DIR)
 
 depend:
-	$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc data/*.cc generators/*.cc receivers/*.cc results/*.cc
+	$(MAKEDEPEND) $(INCLUDE_PATH) -f Makefile -P\$$O/ -- $(MSG_CC_FILES)  ./*.cc admissionControl/*.cc data/*.cc generators/*.cc receivers/*.cc results/*.cc scheduler/*.cc traffic/*.cc
 
 # DO NOT DELETE THIS LINE -- make depend depends on it.
+$O/admissionControl/AdmissionControl.o: admissionControl/AdmissionControl.cc \
+	data/Package_m.h
 $O/data/Package_m.o: data/Package_m.cc \
 	data/Package_m.h
 $O/generators/MmppGenerator.o: generators/MmppGenerator.cc \
 	data/Package_m.h
-$O/generators/PoissonGenerator.o: generators/PoissonGenerator.cc \
-	data/Package_m.h
 $O/generators/OnOffGenerator.o: generators/OnOffGenerator.cc \
+	data/Package_m.h
+$O/generators/PoissonGenerator.o: generators/PoissonGenerator.cc \
 	data/Package_m.h
 $O/generators/ExponentialGenerator.o: generators/ExponentialGenerator.cc \
 	data/Package_m.h
 $O/receivers/Receiver.o: receivers/Receiver.cc \
+	data/Package_m.h
+$O/scheduler/Scheduler.o: scheduler/Scheduler.cc \
+	data/Package_m.h
+$O/traffic/TrafficShaper.o: traffic/TrafficShaper.cc \
 	data/Package_m.h
 

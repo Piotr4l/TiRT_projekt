@@ -1,0 +1,65 @@
+version 2
+run General-0-20110511-22:07:01-6336
+attr configname General
+attr datetime 20110511-22:07:01
+attr experiment General
+attr inifile C:/omnetpp-4.1-src-windows/omnetpp-4.1/samples/Tirt_new/.metadata/version.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network ""
+attr processid 6336
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 0  Network.admissionRejected  arrivals  ETV
+attr interpolationmode  none
+vector 1  Network.admissionRejected  sizes  ETV
+vector 4  Network.destination1  arrivals  ETV
+attr interpolationmode  none
+vector 5  Network.destination1  sizes  ETV
+vector 6  Network.destination2  arrivals  ETV
+attr interpolationmode  none
+vector 7  Network.destination2  sizes  ETV
+vector 8  Network.destination3  arrivals  ETV
+attr interpolationmode  none
+vector 9  Network.destination3  sizes  ETV
+vector 10  Network.destination4  arrivals  ETV
+attr interpolationmode  none
+vector 11  Network.destination4  sizes  ETV
+vector 2  Network.shaperRejected  arrivals  ETV
+attr interpolationmode  none
+vector 3  Network.shaperRejected  sizes  ETV
+1	3	0	17
+1	36	308	15
+1	46	413	19
+0	3	0	0
+0	36	308	308
+0	46	413	105
+3	201	1860	10
+2	201	1860	1860
+5	15	106	20
+5	82	726	13
+5	163	1500	17
+4	15	106	106
+4	82	726	620
+4	163	1500	774
+7	26	207	17
+7	94	828	17
+7	180	1650	10
+6	26	207	207
+6	94	828	621
+6	180	1650	822
+9	58	516	13
+9	113	1035	19
+9	206	1890	16
+8	58	516	516
+8	113	1035	519
+8	206	1890	855
+11	70	625	12
+11	137	1240	14
+10	70	625	625
+10	137	1240	615

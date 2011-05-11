@@ -1,0 +1,26 @@
+version 2
+run general-0-20110511-22:33:23-6732
+attr configname general
+attr datetime 20110511-22:33:23
+attr experiment general
+attr inifile C:/omnetpp-4.1-src-windows/omnetpp-4.1/samples/Tirt_new/omnetpp.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Network
+attr processid 6732
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+vector 4  Network.destination1  arrivals  ETV
+attr interpolationmode  none
+vector 5  Network.destination1  sizes  ETV
+vector 0  Network.admissionRejected  arrivals  ETV
+attr interpolationmode  none
+vector 1  Network.admissionRejected  sizes  ETV
+vector 2  Network.shaperRejected  arrivals  ETV
+attr interpolationmode  none
+vector 3  Network.shaperRejected  sizes  ETV

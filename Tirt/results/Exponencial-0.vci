@@ -1,23 +1,27 @@
-file 5037 1302159420                                            
+file 56246 1304541344                                           
 version 2
-run Exponencial-0-20110407-08:56:43-10604
+run Exponencial-0-20110504-22:35:06-4496
 attr configname Exponencial
-attr datetime 20110407-08:56:43
+attr datetime 20110504-22:35:06
 attr experiment Exponencial
-attr inifile C:/omnetpp-4.1-src-windows/omnetpp-4.1/samples/Tirt/omnetpp.ini
+attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Network2
-attr processid 10604
+attr processid 4496
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-
-vector 0  Network2.receiver  arrivals  ETV
-attr interpolationmode  none
-vector 1  Network2.receiver  sizes  ETV
-0	562 2162 2 300 0 5024 150 0 51 5024 171756
-1	2724 2313 2 300 0 5024 150 500 500 75000 37500000
+vector 0  Network2.receiver1  arrivals  ETV
+attr interpolationmode none
+0	627 17212 3 4860 0 54566 1033 0 284 54566 4003386
+vector 1  Network2.receiver1  sizes  ETV
+1	17839 18156 3 4860 0 54566 1033 500 500 516500 258250000
+vector 2  Network2.receiver2  arrivals  ETV
+attr interpolationmode none
+2	35995 9930 6 4863 37 54603 588 30 518 54603 8277929
+vector 3  Network2.receiver2  sizes  ETV
+3	45925 10321 6 4863 37 54603 588 500 500 294000 147000000

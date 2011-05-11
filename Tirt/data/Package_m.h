@@ -25,6 +25,8 @@
  *     int packetId;
  *     int priority;
  *     int size;
+ *     bool isAccepted;
+ *     bool payload[];
  * }
  * </pre>
  */
@@ -37,6 +39,9 @@ class Package : public ::cPacket
     int packetId_var;
     int priority_var;
     int size_var;
+    bool isAccepted_var;
+    bool *payload_var; // array ptr
+    unsigned int payload_arraysize;
 
     // protected and unimplemented operator==(), to prevent accidental usage
     bool operator==(const Package&);
@@ -63,6 +68,12 @@ class Package : public ::cPacket
     virtual void setPriority(int priority_var);
     virtual int getSize() const;
     virtual void setSize(int size_var);
+    virtual bool getIsAccepted() const;
+    virtual void setIsAccepted(bool isAccepted_var);
+    virtual void setPayloadArraySize(unsigned int size);
+    virtual unsigned int getPayloadArraySize() const;
+    virtual bool getPayload(unsigned int k) const;
+    virtual void setPayload(unsigned int k, bool payload_var);
 };
 
 inline void doPacking(cCommBuffer *b, Package& obj) {obj.parsimPack(b);}

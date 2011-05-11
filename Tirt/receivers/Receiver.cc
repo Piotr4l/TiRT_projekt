@@ -4,6 +4,7 @@
 
 class Receiver : public cSimpleModule {
 	private:
+
 		simtime_t lastArrival;
 		long numRecv;
 
@@ -24,19 +25,25 @@ Define_Module(Receiver);
 void Receiver::initialize() {
 	lastArrival = 0.0;
 	numRecv = 0;
+
     iaTimeHistogram.setName("interarrival times");
     arrivalsVector.setName("arrivals");
     sizesVector.setName("sizes");
+
+
     arrivalsVector.setInterpolationMode(cOutVector::NONE);
 }
 
 void Receiver::handleMessage(cMessage *msg) {
-	// count interval;
-	simtime_t interval = simTime() - lastArrival;
-	EV << "Package arrived at " << simTime() << " interval between previous and actual: " << interval << "\n";
 
 	// take message
 	Package *package = check_and_cast<Package*>(msg);
+	simtime_t interval;
+
+	// count interval;
+	interval = simTime() - lastArrival;
+	EV << "Package arrived at " << simTime() << " interval between previous and actual: " << interval << "\n";
+
 	numRecv++;
 
 	// store data in vector
@@ -44,10 +51,11 @@ void Receiver::handleMessage(cMessage *msg) {
 	arrivalsVector.record(interval);
 	sizesVector.record(package -> getSize());
 
-	delete msg;
-
 	//set last arrival time
 	lastArrival = simTime();
+
+
+	delete msg;
 
 	// generate bubble with counter
 	if (ev.isGUI())

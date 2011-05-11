@@ -1,23 +1,42 @@
-file 6143 1302160619                                            
+file 3985 1304550612                                            
 version 2
-run Poisson-0-20110407-09:16:40-14620
+run Poisson-0-20110505-01:09:04-2456
 attr configname Poisson
-attr datetime 20110407-09:16:40
+attr datetime 20110505-01:09:04
 attr experiment Poisson
-attr inifile C:/omnetpp-4.1-src-windows/omnetpp-4.1/samples/Tirt/omnetpp.ini
+attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvars2 $repetition=0
 attr measurement ""
 attr network Network1
-attr processid 14620
+attr processid 2456
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-
-vector 0  Network1.receiver  arrivals  ETV
-attr interpolationmode  none
-vector 1  Network1.receiver  sizes  ETV
-0	550 2703 2 372 0 6488 186 0 41 6488 228490
-1	3253 2890 2 372 0 6488 186 500 500 93000 46500000
+vector 4  Network1.destination1  arrivals  ETV
+attr interpolationmode none
+4	1990 241 5 3337 0 2969 15 0 311 2969 668203
+vector 5  Network1.destination1  sizes  ETV
+5	2231 243 5 3337 0 2969 15 500 500 7500 3750000
+vector 6  Network1.destination2  arrivals  ETV
+attr interpolationmode none
+6	2474 244 48 3414 39 3038 15 39 349 3038 695478
+vector 7  Network1.destination2  sizes  ETV
+7	2718 245 48 3414 39 3038 15 500 500 7500 3750000
+vector 0  Network1.admissionRejected  arrivals  ETV
+attr interpolationmode none
+0	1008 482 85 3488 73 3106 31 32 359 3106 506894
+vector 1  Network1.admissionRejected  sizes  ETV
+1	1490 500 85 3488 73 3106 31 500 500 15500 7750000
+vector 8  Network1.destination3  arrivals  ETV
+attr interpolationmode none
+8	2963 248 128 3528 111 3141 15 111 382 3141 736113
+vector 9  Network1.destination3  sizes  ETV
+9	3211 248 128 3528 111 3141 15 500 500 7500 3750000
+vector 10  Network1.destination4  arrivals  ETV
+attr interpolationmode none
+10	3459 263 247 3564 219 3172 15 139 376 3172 739078
+vector 11  Network1.destination4  sizes  ETV
+11	3722 263 247 3564 219 3172 15 500 500 7500 3750000
